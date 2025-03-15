@@ -41,14 +41,14 @@
                                         @csrf
 										<div class="mb-3">
 											<label class="form-label">Email</label>
-											<input class="form-control form-control-lg" name="email" type="email" value="{{ old('email') }}" name="email" placeholder="Isi email kamu" />
+											<input class="form-control form-control-lg" name="email" type="email" value="{{ old('email') }}" name="email" placeholder="Masukkan email kamu" />
                                             @if($errors->has('email'))
                                                 <div class="error">{{ $errors->first('email') }}</div>
                                             @endif
                                         </div>
 										<div class="mb-3">
 											<label class="form-label">Password</label>
-											<input class="form-control form-control-lg" name="password" type="password" value="{{ old('password') }}" name="password" placeholder="Isi password kamu" />
+											<input class="form-control form-control-lg" name="password" type="password" value="{{ old('password') }}" name="password" placeholder="Masukkan password kamu" />
                                             @if($errors->has('password'))
                                                 <div class="error">{{ $errors->first('password') }}</div>
                                             @endif
