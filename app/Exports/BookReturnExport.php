@@ -12,9 +12,9 @@ class BookReturnExport implements FromCollection
 {
     private $date_from, $until_date;
 
-    public function ___construct($date_from, $until_date){
-        $this->date_from = $date_from;
-        $this->until_date = $until_date;
+    public function ___construct($q_date_from, $q_until_date){
+        $this->date_from = $q_date_from;
+        $this->until_date = $q_until_date;
     }
 
     public function headings(): array
@@ -29,8 +29,8 @@ class BookReturnExport implements FromCollection
     public function collection()
     { 
         // 01 - 02 - 2025 < 03 - 02 - 2025
-        return BookReturn::whereBetween('updated_at', [Carbon::parse($this->date_from)->startOfDay()->format('Y-m-d H:i:s'),
-                                                       Carbon::parse($this->until_date)->endOfDay()->format('Y-m-d H:i:s')])->get();
+        return BookReturn::whereBetween('updated_at', [Carbon::parse($this->date_from)->startOfDay()->format('Y-m-d'),
+                                                       Carbon::parse($this->until_date)->endOfDay()->format('Y-m-d')])->get();
     }
 
     public function styles(Worksheet $sheet)
